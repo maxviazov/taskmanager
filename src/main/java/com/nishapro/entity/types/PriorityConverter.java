@@ -1,4 +1,4 @@
-package com.nishapro.entity.type;
+package com.nishapro.entity.types;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

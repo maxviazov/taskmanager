@@ -1,4 +1,4 @@
-package com.nishapro.entity.type;
+package com.nishapro.entity.types;
 
 public enum Priority {
     LOW, MEDIUM, HIGH

@@ -2,7 +2,7 @@ package com.nishapro;
 
 import com.nishapro.controller.ProcessController;
 import com.nishapro.entity.Process;
-import com.nishapro.entity.type.Priority;
+import com.nishapro.entity.types.Priority;
 import com.nishapro.repository.ProcessRepository;
 import com.nishapro.service.ProcessService;
 import org.junit.jupiter.api.Test;
