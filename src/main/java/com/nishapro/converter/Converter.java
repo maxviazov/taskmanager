@@ -19,7 +19,7 @@ public class Converter {
     }
     public static Process convertToEntity(ProcessDto dto, List<Process> priorities){
         return Process.builder()
-                .priority(priorities.stream().map(Process::getPriority).collect(Collectors.toList()));
+//                .priority(priorities.stream().map(Process::getPriority).collect(Collectors.toList()));
                 .build();
     }
 }
