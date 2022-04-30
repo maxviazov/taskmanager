@@ -1,6 +1,7 @@
 package com.nishapro.entity;
 
 import com.nishapro.entity.type.Priority;
+import com.nishapro.entity.type.PriorityConverter;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,11 +18,10 @@ import javax.validation.constraints.NotNull;
 public class Process {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "pid", nullable = false)
+    private Long pid;
 
-    @NotNull(message = "No process priority")
-    @Enumerated
+    @Convert(converter = PriorityConverter.class)
     private Priority priority;
 
 }
