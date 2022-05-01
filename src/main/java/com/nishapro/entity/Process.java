@@ -5,6 +5,7 @@ import com.nishapro.entity.types.PriorityConverter;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Builder
 @AllArgsConstructor
@@ -13,15 +14,18 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-@Table(name = "process")
+@Table(name = "PROCESS")
 public class Process {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pid", nullable = false)
+    @Column(name = "PID", nullable = false)
     private Long pid;
 
-    @Column(name = "priority")
+    @Column(name = "PRIORITY")
     @Convert(converter = PriorityConverter.class)
     private Priority priority;
+
+    @Column(name = "CREATION_TIME")
+    private LocalDateTime creationTime;
 
 }
