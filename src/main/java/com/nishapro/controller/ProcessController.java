@@ -15,8 +15,10 @@ public class ProcessController {
         return processService.addAProcess(processDto);
     }
 
-    @PostMapping("/process")
-    public
+    @PostMapping("/process/fifo")
+    public ProcessDto addProcessFIFO(@RequestBody ProcessDto processDto){
+        return processService.addProcessFIFO(processDto);
+    }
 
     @GetMapping("/process/{pid}")
     public ProcessDto findProcessByPid(@PathVariable("pid") Long pid){
