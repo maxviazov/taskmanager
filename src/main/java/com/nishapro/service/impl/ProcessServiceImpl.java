@@ -32,12 +32,20 @@ public class ProcessServiceImpl implements ProcessService {
 
     @Override
     public ProcessDto addProcessFIFO(ProcessDto processDto) {
-        Deque<Process> processes = new ArrayDeque<>(processRepository.findAll());
-        if(!checkCapacity()){
+        LinkedList<Process> processes = new LinkedList<>(processRepository.findAll());
+        List<Priority> priorityList = new ArrayList<>(Arrays.asList(Priority.values()));
+        int index = priorityList.indexOf(processDto.getPriority());
+        String priority = String.valueOf(priorityList.get(index));
+        if (processes.size() == 10){
             processes.pollLast();
-            processes.addFirst(processRepository.save(ProcessConverter.convertToEntity(String.valueOf(processDto))));
+            System.out.println(processes);
+            processes.offerFirst(processRepository.save(ProcessConverter.convertToEntity(priority)));
+            assert processes.peekFirst() != null;
+            return ProcessConverter.convertToDto(processes.peekFirst());
         }
-        return ProcessConverter.convertToDto(processes.getFirst());
+        processes.offerFirst(processRepository.save(ProcessConverter.convertToEntity(priority)));
+        assert processes.peekFirst() != null;
+        return ProcessConverter.convertToDto(processes.peekFirst());
     }
 
     private boolean checkCapacity() {
