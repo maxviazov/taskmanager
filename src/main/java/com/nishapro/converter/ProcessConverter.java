@@ -4,7 +4,6 @@ import com.nishapro.dto.ProcessDto;
 import com.nishapro.entity.Process;
 import com.nishapro.entity.types.Priority;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
 
 public class ProcessConverter {
@@ -23,4 +22,5 @@ public class ProcessConverter {
                 .creationTime(LocalDateTime.now())
                 .build();
     }
+
 }
